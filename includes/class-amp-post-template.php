@@ -215,6 +215,11 @@ class AMP_Post_Template {
 
 			if ( ! empty( $attached_image_ids ) ) {
 				$post_image_id = array_shift( $attached_image_ids );
+			} elseif ( has_custom_logo() ) {
+				/*
+				 * Including site custom logo as image if post doesn't have attachment.
+				 */
+				$post_image_id = get_theme_mod( 'custom_logo', false );
 			}
 		}
 
